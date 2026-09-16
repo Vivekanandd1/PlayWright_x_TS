@@ -1,11 +1,11 @@
 {
-    "data": [
+    "data": 
         {
-            "WebValues": [
+            "myAccount": 
                 {
-                    "homePageUrl": ""
+                    "welcomeText": "Here you can manage your profile, favorites and orders"
                 }
-            ]
+            
         }
-    ]
+    
 }

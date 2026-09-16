@@ -4,56 +4,69 @@
     "elements": [
       {
         "description": "",
-        "id": "e-commerce-web-application-health-check;user-opened-browser-and-navigate-to-home-page-url-and-validate-the-home-page-url-with-user-given-url",
+        "id": "e-commerce-web-application-accont-management;user-is-able-to-login-with-valid-credentials-and-validate-the-user-account-page-url",
         "keyword": "Scenario",
-        "line": 8,
-        "name": "User opened browser and navigate to home page url and validate the home page url with user given url",
+        "line": 9,
+        "name": "User is able to login with valid credentials and validate the user account page url",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 312012700
+              "duration": 416037099
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 5,
+            "line": 6,
             "name": "User navigated to home page url",
             "match": {
-              "location": "steps\\HomepageStep.ts:9"
+              "location": "steps\\HomepageStep.ts:7"
             },
             "result": {
               "status": "passed",
-              "duration": 10192338299
+              "duration": 3406337399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "User clicked on SignIn button",
+            "match": {
+              "location": "steps\\myAccountPageSteps.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 357089299
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 9,
-            "name": "User navigated to home page url",
+            "line": 11,
+            "name": "User entered valid username and password",
             "match": {
-              "location": "steps\\HomepageStep.ts:9"
+              "location": "steps\\myAccountPageSteps.ts:20"
             },
             "result": {
               "status": "passed",
-              "duration": 779442900
+              "duration": 8551128799
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 10,
-            "name": "User should be redirected to \"process.env.Base_URL\" url",
+            "line": 12,
+            "name": "User should be able to see the welcome text \"data.myAccount.welcomeText\" on the account page",
             "match": {
-              "location": "steps\\HomepageStep.ts:13"
+              "location": "steps\\myAccountPageSteps.ts:24"
             },
             "result": {
               "status": "passed",
-              "duration": 3434300
+              "duration": 151670100
             }
           },
           {
@@ -61,53 +74,45 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 66135700
+              "duration": 103675699
             }
           }
         ],
         "tags": [
           {
             "name": "@ui",
-            "line": 1
+            "line": 2
           },
           {
-            "name": "@HealthCheck",
-            "line": 1
+            "name": "@myaccount",
+            "line": 2
           },
           {
-            "name": "@AutomationPractice",
-            "line": 1
+            "name": "@userLogin",
+            "line": 8
           },
           {
-            "name": "@1",
-            "line": 7
-          },
-          {
-            "name": "@UrlValidation",
-            "line": 7
+            "name": "@smoke",
+            "line": 8
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "e-commerce-web-application-health-check",
-    "line": 2,
+    "id": "e-commerce-web-application-accont-management",
+    "line": 3,
     "keyword": "Feature",
-    "name": "E-commerce Web Application Health Check",
+    "name": "E-commerce Web Application Accont Management",
     "tags": [
       {
         "name": "@ui",
-        "line": 1
+        "line": 2
       },
       {
-        "name": "@HealthCheck",
-        "line": 1
-      },
-      {
-        "name": "@AutomationPractice",
-        "line": 1
+        "name": "@myaccount",
+        "line": 2
       }
     ],
-    "uri": "feature\\regression.feature"
+    "uri": "feature\\MyAccount.feature"
   }
 ]

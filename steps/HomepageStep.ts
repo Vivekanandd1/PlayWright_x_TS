@@ -4,10 +4,8 @@ import { Homepage } from '../pages/Homepage';
 import { fixture } from '../Utils/fixture';
 import { Properties } from '../properties/Properties';
 
-const homepage = new Homepage(fixture.page);
-
 Given('User navigated to home page url', async () => {
-  await homepage.navigateToHomePageUrl();
+  await Homepage.navigateToHomePageUrl();
 });
 
 Then('User should be redirected to {string} url', async (expectedPath: string) => {

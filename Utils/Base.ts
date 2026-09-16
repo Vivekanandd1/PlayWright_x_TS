@@ -9,7 +9,7 @@ export let context: BrowserContext;
 
 export class Base {
 
-    static async goto(url: string) {
+     static async landOn(url: string) {
         await fixture.page.goto(url, {
             waitUntil: "domcontentloaded"
         });
