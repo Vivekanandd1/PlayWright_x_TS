@@ -26,12 +26,11 @@ export class MyAccountPage extends Base {
         await fixture.page.locator(this.elements.emailField).fill(username);
         await fixture.page.locator(this.elements.passwordField).fill(password);
         await this.waitAndClick(this.elements.logingSubmitButton);
-        await fixture.page.pause();
     }
 
     public static async verifyWelcomeText(welcomeText:string){
+        await fixture.page.waitForLoadState('networkidle');
         const text = fixture.page.locator(this.elements.welcomeText);
-        await text.waitFor({state: "visible",timeout: 2000});
         expect(await text.textContent()).toContain(welcomeText);
     }
 

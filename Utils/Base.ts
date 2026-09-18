@@ -1,6 +1,7 @@
 import { setDefaultTimeout } from '@cucumber/cucumber';
 import { BrowserContext, Browser } from '@playwright/test';
 import { fixture } from '../Utils/fixture';
+import data from '../data/data.json';
 
 setDefaultTimeout(180000);
 
@@ -71,6 +72,10 @@ export class Base {
     static async generateEmailAddressWithParameters(prefix: string, subfix: string) {
         const timestamp = new Date().getTime();
         return prefix + `${timestamp}@` + subfix; //companyAutoTestAccount, gmail.com
+    }
+
+    static async getJsonValue(path: string): Promise<string>{
+       return path.split('.').reduce((obj: any, key) => obj?.[key], data);
     }
 
   
