@@ -1,3 +1,4 @@
+// steps/hooks.ts
 import { Before, After, BeforeAll, AfterAll, setDefaultTimeout, Status } from '@cucumber/cucumber';
 import { chromium, Browser, BrowserContext } from '@playwright/test';
 import { ScreenshotHelper } from '../Utils/ScreenshotHelper';
@@ -9,7 +10,7 @@ let browser: Browser;
 let context: BrowserContext;
 
 BeforeAll(async () => {
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch({ headless: !!process.env.CI });
 });
 
 Before(async () => {
@@ -18,14 +19,13 @@ Before(async () => {
 });
 
 After(async ({ result }) => {
-     if (result?.status === Status.FAILED) {
-      const fileName = `${Date.now()}`;
-      await ScreenshotHelper.capture(fixture.page, fileName);
-    }
+  if (result?.status === Status.FAILED) {
+    const fileName = `${Date.now()}`;
+    await ScreenshotHelper.capture(fixture.page, fileName);
+  }
 
   await fixture.page?.close();
   await context?.close();
-
 });
 
 AfterAll(async () => {
