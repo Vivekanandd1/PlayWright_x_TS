@@ -7,10 +7,19 @@ import { expect, Page } from '@playwright/test';
 export class Homepage extends Base {  
 
    private static elements = {
+    //SelectsOptions
      sortOptions : 'select.form-select',
-     productListWithName : 'div.card-body h5', 
+
+     //Field
+     searchBox : '#search-query',
      slider: '.ngx-slider-pointer-max',
-     productListWithPrice : '[data-test="product-price"]'
+
+     //Porudcts element
+     productListWithName : 'div.card-body h5', 
+     productListWithPrice : '[data-test="product-price"]',
+
+     //buttons
+     searchBtn : '[data-test="search-submit"]',
    }
 
   public static async navigateToHomePageUrl() {
@@ -35,6 +44,12 @@ export class Homepage extends Base {
     expect(actual).toEqual(expected);
   }
 
+   public static async productListWithSearchKeyword(keyword:string){
+     await fixture.page.waitForTimeout(2000);
+     const produclist = await fixture.page.locator(this.elements.productListWithName).allTextContents();
+    expect(produclist[1].trim()).toContain(keyword);
+  }
+
   public static async setSliderPrice(number:number){
    const slider = fixture.page.locator(this.elements.slider);
    await slider.focus();     
@@ -42,12 +57,19 @@ export class Homepage extends Base {
   for (let i = 0; i < targetValue; i++) { 
   await slider.press('ArrowLeft');
   }
+  await slider.press('Tab');
   }
 
   public static async verifyProductsPricing(targetValue : number){
-    await fixture.page.waitForLoadState('networkidle');
+    await fixture.page.waitForTimeout(3000);
     const produclist = await fixture.page.locator(this.elements.productListWithPrice).allTextContents();
     const actual = produclist.map(price => Number(price.replace('$',"").trim()));
   expect(actual.every(price => price <= targetValue)).toBeTruthy();
+  }
+
+  public static async searchOnHomePage(keyword:string){
+    await fixture.page.waitForLoadState('domcontentloaded');
+    await fixture.page.locator(this.elements.searchBox).fill(keyword);
+    await fixture.page.locator(this.elements.searchBtn).click();
   }
 }

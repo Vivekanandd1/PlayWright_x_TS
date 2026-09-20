@@ -29,3 +29,11 @@ When('User keeps the price slider max to {int}',async function(Maxnumber:number)
 Then('All the listed product should be below or equal to {int}', async function (Maxnumber:number) {
   await Homepage.verifyProductsPricing(Maxnumber);
 });
+
+When('User searches for {string} in Application',async function(keyword:string){
+  await Homepage.searchOnHomePage(keyword);
+});
+
+Then('Homepage should display product with matching name {string}', async function(keyword:string){
+  await Homepage.productListWithSearchKeyword(keyword);
+});

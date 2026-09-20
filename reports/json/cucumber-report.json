@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 434721300
+              "duration": 294934299
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2995579399
+              "duration": 1968101600
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1121565099
+              "duration": 549506900
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1591745600
+              "duration": 1565182799
             }
           },
           {
@@ -66,7 +66,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2520896500
+              "duration": 542480800
             }
           },
           {
@@ -79,7 +79,33 @@
             },
             "result": {
               "status": "passed",
-              "duration": 54090700
+              "duration": 3023676399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "User searches for \"Hammer\" in Application",
+            "match": {
+              "location": "steps\\HomepageStep.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 75887500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "Homepage should display product with matching name \"Hammer\"",
+            "match": {
+              "location": "steps\\HomepageStep.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2024981600
             }
           },
           {
@@ -87,7 +113,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 143752200
+              "duration": 71580199
             }
           }
         ],
