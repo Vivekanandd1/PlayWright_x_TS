@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 294934299
+              "duration": 223606000
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1968101600
+              "duration": 2124010100
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 549506900
+              "duration": 923319099
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1565182799
+              "duration": 1732036200
             }
           },
           {
@@ -66,7 +66,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 542480800
+              "duration": 659941600
             }
           },
           {
@@ -79,7 +79,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3023676399
+              "duration": 3018198399
             }
           },
           {
@@ -92,7 +92,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 75887500
+              "duration": 109237600
             }
           },
           {
@@ -105,7 +105,33 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2024981600
+              "duration": 2038176100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "User selects a category in Homepage",
+            "match": {
+              "location": "steps\\HomepageStep.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1233461100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "User should be able to see the related product \"tools.powerTools.tools\"",
+            "match": {
+              "location": "steps\\HomepageStep.ts:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2065834400
             }
           },
           {
@@ -113,7 +139,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 71580199
+              "duration": 49536400
             }
           }
         ],

@@ -37,3 +37,11 @@ When('User searches for {string} in Application',async function(keyword:string){
 Then('Homepage should display product with matching name {string}', async function(keyword:string){
   await Homepage.productListWithSearchKeyword(keyword);
 });
+
+When('User selects a category in Homepage', async function() {
+   await Homepage.categorySelection();
+});
+
+Then('User should be able to see the related product {string}', async function(tools:string){
+   await Homepage.productListWithSearchKeyword(Properties.getProperty(tools));
+});

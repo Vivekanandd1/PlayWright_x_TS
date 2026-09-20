@@ -17,5 +17,5 @@ Scenario: Check the Search and filter works correctly on Homepage
    Then All the listed product should be below or equal to 50
    When User searches for "Hammer" in Application
    Then Homepage should display product with matching name "Hammer"
-  #  When User selects a category in Homepage
-  #  Then User should be able to see the related product
+   When User selects a category in Homepage
+   Then User should be able to see the related product "tools.powerTools.tools"

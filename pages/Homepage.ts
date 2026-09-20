@@ -13,6 +13,7 @@ export class Homepage extends Base {
      //Field
      searchBox : '#search-query',
      slider: '.ngx-slider-pointer-max',
+     powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
 
      //Porudcts element
      productListWithName : 'div.card-body h5', 
@@ -71,5 +72,11 @@ export class Homepage extends Base {
     await fixture.page.waitForLoadState('domcontentloaded');
     await fixture.page.locator(this.elements.searchBox).fill(keyword);
     await fixture.page.locator(this.elements.searchBtn).click();
+  }
+
+  public static async categorySelection(){
+    await fixture.page.reload();
+    await fixture.page.waitForLoadState('domcontentloaded');
+    await fixture.page.locator(this.elements.powerTools).check();
   }
 }

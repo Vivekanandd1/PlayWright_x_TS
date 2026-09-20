@@ -6,6 +6,11 @@
                     "welcomeText": "Here you can manage your profile, favorites and orders"
                 }
             
-        }
-    
+            
+        },
+    "tools":{
+           "powerTools":{
+            "tools" : "Belt Sander"
+           }
+    }
 }
