@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --require-module ts-node/register --require \"steps/**/*.ts\"",
-    "report": "ts-node Utils/CucumberReporter.ts"
-  },
+    "test": "mkdir -p reports/json && cucumber-js --require-module ts-node/register --require \"steps/**/*.ts\" --format progress --format json:reports/json/cucumber-report.json",
+    "report": "mkdir -p reports/json reports/html && ts-node Utils/CucumberReporter.ts"
+  }
   "keywords": [],
   "author": "",
   "license": "ISC",
