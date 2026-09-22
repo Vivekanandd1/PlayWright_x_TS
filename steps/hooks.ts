@@ -9,7 +9,7 @@ let browser: Browser;
 let context: BrowserContext;
 
 BeforeAll(async () => {
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch({ headless: !!process.env.CI });
 });
 
 Before(async () => {
