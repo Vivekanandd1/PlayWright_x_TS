@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 265285700
+              "duration": 290491799
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 7284832200
+              "duration": 2878343400
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 78695999
+              "duration": 82485999
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 5003799
+              "duration": 4514599
             }
           },
           {
@@ -61,7 +61,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 63813799
+              "duration": 61685499
             }
           }
         ],
@@ -101,7 +101,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 278389299
+              "duration": 252443800
             }
           },
           {
@@ -114,7 +114,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 7325945999
+              "duration": 5293867399
             }
           },
           {
@@ -127,7 +127,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 891160299
+              "duration": 896110099
             }
           },
           {
@@ -140,7 +140,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2193205899
+              "duration": 2579056600
             }
           },
           {
@@ -153,7 +153,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 546683199
+              "duration": 839702400
             }
           },
           {
@@ -165,9 +165,8 @@
               "location": "steps\\HomepageStep.ts:29"
             },
             "result": {
-              "status": "failed",
-              "duration": 3023752300,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at captureRawStack (D:\\Playwright-Learning\\node_modules\\playwright-core\\lib\\coreBundle.js:3172:17)\n    at callMatcherAsStep (D:\\Playwright-Learning\\node_modules\\playwright\\lib\\matchers\\expect.js:12877:57)\n    at Object.toBeTruthy (D:\\Playwright-Learning\\node_modules\\playwright\\lib\\matchers\\expect.js:12867:23)\n    at Function.verifyProductsPricing (D:\\Playwright-Learning\\pages\\Homepage.ts:68:55)\n    at async World.<anonymous> (D:\\Playwright-Learning\\steps\\HomepageStep.ts:30:3)"
+              "status": "passed",
+              "duration": 3014171299
             }
           },
           {
@@ -179,8 +178,8 @@
               "location": "steps\\HomepageStep.ts:33"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1468306199
             }
           },
           {
@@ -192,8 +191,8 @@
               "location": "steps\\HomepageStep.ts:37"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 2013577600
             }
           },
           {
@@ -205,8 +204,8 @@
               "location": "steps\\HomepageStep.ts:41"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 3039987499
             }
           },
           {
@@ -218,8 +217,8 @@
               "location": "steps\\HomepageStep.ts:45"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 2030941699
             }
           },
           {
@@ -227,7 +226,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 429450400
+              "duration": 31072800
             }
           }
         ],
@@ -295,7 +294,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 192524100
+              "duration": 150387300
             }
           },
           {
@@ -308,7 +307,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3386012099
+              "duration": 2650045500
             }
           },
           {
@@ -321,7 +320,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 930268600
+              "duration": 914218400
             }
           },
           {
@@ -334,7 +333,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000608699
+              "duration": 1459512099
             }
           },
           {
@@ -346,8 +345,9 @@
               "location": "steps\\myAccountPageSteps.ts:23"
             },
             "result": {
-              "status": "passed",
-              "duration": 3164402500
+              "status": "failed",
+              "duration": 927894699,
+              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Here you can manage your profile, favorites and orders\"\u001b[39m\nReceived string:    \u001b[31m\"Not yet an account? Register your accountForgot your Password?\"\u001b[39m\n    at captureRawStack (D:\\Playwright-Learning\\node_modules\\playwright-core\\lib\\coreBundle.js:3172:17)\n    at callMatcherAsStep (D:\\Playwright-Learning\\node_modules\\playwright\\lib\\matchers\\expect.js:12877:57)\n    at Object.toContain (D:\\Playwright-Learning\\node_modules\\playwright\\lib\\matchers\\expect.js:12867:23)\n    at Function.verifyWelcomeText (D:\\Playwright-Learning\\pages\\myAccountPage.ts:34:42)\n    at async World.<anonymous> (D:\\Playwright-Learning\\steps\\myAccountPageSteps.ts:25:5)"
             }
           },
           {
@@ -355,7 +355,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 30947299
+              "duration": 207847999
             }
           }
         ],
