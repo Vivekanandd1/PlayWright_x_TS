@@ -22,7 +22,7 @@ Then('User should be able to see the result alphabetically', async function(){
    await Homepage.productListingAtoZ();
 });
 
-When('User keeps the price slider max to {int}',async function(Maxnumber:number){
+When('User keeps the price slider max to {int}',async function(Maxnumber: number){
    await Homepage.setSliderPrice(Maxnumber);
 });
 

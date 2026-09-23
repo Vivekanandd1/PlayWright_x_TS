@@ -1,0 +1,35 @@
+name: Playwright Tests
+run-name: Playwright ${{ inputs.test_script }}
+on:
+  workflow_dispatch:
+    inputs:
+      test_script:
+        description: "Select the test script to run"
+        required: true
+        default: "npm run test:ui_smoke_test"
+        type: choice
+        options:
+          - test:ui_smoke_test
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps chromium
+    - name: Run Cucumber tests
+      run: npm run ${{ inputs.test_script }}
+    - name: Generate HTML report
+      run: npx ts-node Utils/CucumberReporter.ts
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: cucumber-report
+        path: reports/
+        retention-days: 30
