@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --require-module ts-node/register --require \"steps/**/*.ts\"",
+    "test:ui_smoke_test": "npx tsx runners/ui_smokeRunner.ts",
     "report": "ts-node Utils/CucumberReporter.ts"
   },
   "keywords": [],

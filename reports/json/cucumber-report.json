@@ -1,1 +1,398 @@
-[]
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "e-commerce-web-application-health-check;user-opened-browser-and-navigate-to-home-page-url-and-validate-the-home-page-url-with-user-given-url",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "User opened browser and navigate to home page url and validate the home page url with user given url",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 332898300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigated to home page url",
+            "match": {
+              "location": "steps\\HomepageStep.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5393373600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "User navigated to home page url",
+            "match": {
+              "location": "steps\\HomepageStep.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97106700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "User should be redirected to correct url",
+            "match": {
+              "location": "steps\\HomepageStep.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5010900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 65387800
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          },
+          {
+            "name": "@HealthCheck",
+            "line": 1
+          },
+          {
+            "name": "@AutomationPractice",
+            "line": 1
+          },
+          {
+            "name": "@UrlValidation",
+            "line": 7
+          },
+          {
+            "name": "@smoke",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-web-application-health-check;check-the-search-and-filter-works-correctly-on-homepage",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Check the Search and filter works correctly on Homepage",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 288119200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigated to home page url",
+            "match": {
+              "location": "steps\\HomepageStep.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5029949800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 14,
+            "name": "User sorts the produclist alphabetically",
+            "match": {
+              "location": "steps\\HomepageStep.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1422779599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "User should be able to see the result alphabetically",
+            "match": {
+              "location": "steps\\HomepageStep.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7748727599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "User keeps the price slider max to 50",
+            "match": {
+              "location": "steps\\HomepageStep.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 536473700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "All the listed product should be below or equal to 50",
+            "match": {
+              "location": "steps\\HomepageStep.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3026977599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "User searches for \"Hammer\" in Application",
+            "match": {
+              "location": "steps\\HomepageStep.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 101911900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "Homepage should display product with matching name \"Hammer\"",
+            "match": {
+              "location": "steps\\HomepageStep.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2027582699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "User selects a category in Homepage",
+            "match": {
+              "location": "steps\\HomepageStep.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2339469399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "User should be able to see the related product \"tools.powerTools.tools\"",
+            "match": {
+              "location": "steps\\HomepageStep.ts:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2065407999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39037199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          },
+          {
+            "name": "@HealthCheck",
+            "line": 1
+          },
+          {
+            "name": "@AutomationPractice",
+            "line": 1
+          },
+          {
+            "name": "@Filters",
+            "line": 12
+          },
+          {
+            "name": "@smoke",
+            "line": 12
+          },
+          {
+            "name": "@regression",
+            "line": 12
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "e-commerce-web-application-health-check",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "E-commerce Web Application Health Check",
+    "tags": [
+      {
+        "name": "@ui",
+        "line": 1
+      },
+      {
+        "name": "@HealthCheck",
+        "line": 1
+      },
+      {
+        "name": "@AutomationPractice",
+        "line": 1
+      }
+    ],
+    "uri": "feature\\Hompage.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "e-commerce-web-application-accont-management;user-is-able-to-login-with-valid-credentials-and-validate-the-user-account-page-url",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "User is able to login with valid credentials and validate the user account page url",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 237344600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "User navigated to home page url",
+            "match": {
+              "location": "steps\\HomepageStep.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4978142999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "User clicked on SignIn button",
+            "match": {
+              "location": "steps\\myAccountPageSteps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 927524199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "User entered valid username and password",
+            "match": {
+              "location": "steps\\myAccountPageSteps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4027503100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "User should be able to see the welcome text \"data.myAccount.welcomeText\" on the account page",
+            "match": {
+              "location": "steps\\myAccountPageSteps.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5477613100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 43306899
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 2
+          },
+          {
+            "name": "@myaccount",
+            "line": 2
+          },
+          {
+            "name": "@userLogin",
+            "line": 8
+          },
+          {
+            "name": "@smoke",
+            "line": 8
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "e-commerce-web-application-accont-management",
+    "line": 3,
+    "keyword": "Feature",
+    "name": "E-commerce Web Application Accont Management",
+    "tags": [
+      {
+        "name": "@ui",
+        "line": 2
+      },
+      {
+        "name": "@myaccount",
+        "line": 2
+      }
+    ],
+    "uri": "feature\\MyAccount.feature"
+  }
+]
