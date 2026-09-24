@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 290491799
+              "duration": 236629400
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2878343400
+              "duration": 6429380699
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 82485999
+              "duration": 88342699
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4514599
+              "duration": 3018199
             }
           },
           {
@@ -61,7 +61,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 61685499
+              "duration": 63023299
             }
           }
         ],
@@ -101,7 +101,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 252443800
+              "duration": 247408499
             }
           },
           {
@@ -114,7 +114,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 5293867399
+              "duration": 2460068199
             }
           },
           {
@@ -127,7 +127,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 896110099
+              "duration": 891150599
             }
           },
           {
@@ -140,7 +140,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2579056600
+              "duration": 2707218600
             }
           },
           {
@@ -153,7 +153,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 839702400
+              "duration": 518759000
             }
           },
           {
@@ -166,7 +166,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3014171299
+              "duration": 3018963999
             }
           },
           {
@@ -179,7 +179,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1468306199
+              "duration": 78326300
             }
           },
           {
@@ -192,7 +192,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2013577600
+              "duration": 2018558300
             }
           },
           {
@@ -205,7 +205,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3039987499
+              "duration": 1985933600
             }
           },
           {
@@ -218,7 +218,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2030941699
+              "duration": 2022854999
             }
           },
           {
@@ -226,7 +226,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 31072800
+              "duration": 37996699
             }
           }
         ],
@@ -294,7 +294,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 150387300
+              "duration": 250890100
             }
           },
           {
@@ -307,7 +307,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2650045500
+              "duration": 7994514199
             }
           },
           {
@@ -320,7 +320,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 914218400
+              "duration": 7125508200
             }
           },
           {
@@ -333,7 +333,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1459512099
+              "duration": 2476166900
             }
           },
           {
@@ -345,9 +345,8 @@
               "location": "steps\\myAccountPageSteps.ts:23"
             },
             "result": {
-              "status": "failed",
-              "duration": 927894699,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Here you can manage your profile, favorites and orders\"\u001b[39m\nReceived string:    \u001b[31m\"Not yet an account? Register your accountForgot your Password?\"\u001b[39m\n    at captureRawStack (D:\\Playwright-Learning\\node_modules\\playwright-core\\lib\\coreBundle.js:3172:17)\n    at callMatcherAsStep (D:\\Playwright-Learning\\node_modules\\playwright\\lib\\matchers\\expect.js:12877:57)\n    at Object.toContain (D:\\Playwright-Learning\\node_modules\\playwright\\lib\\matchers\\expect.js:12867:23)\n    at Function.verifyWelcomeText (D:\\Playwright-Learning\\pages\\myAccountPage.ts:34:42)\n    at async World.<anonymous> (D:\\Playwright-Learning\\steps\\myAccountPageSteps.ts:25:5)"
+              "status": "passed",
+              "duration": 9182817599
             }
           },
           {
@@ -355,7 +354,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 207847999
+              "duration": 45180199
             }
           }
         ],

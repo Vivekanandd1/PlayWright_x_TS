@@ -31,7 +31,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run Cucumber tests
-        run: npm run test:ui_smoke_test
+        run: npm run test:ui_smoke_test --project=chromium
 
       - name: Generate HTML report
         run: npx ts-node Utils/CucumberReporter.ts
