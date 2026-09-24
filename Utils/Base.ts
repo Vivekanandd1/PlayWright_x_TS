@@ -16,12 +16,13 @@ export class Base {
         });
     }
 
-    static async waitAndClick(locator: string) {
+    static async waitAndClick(locator: string, timeout: number = 180000) {
         const element = fixture.page.locator(locator);
         await element.waitFor({
-            state: "visible"
+            state: "visible",
+            timeout
         });
-        await element.click();
+        await element.click({ timeout });
     }
     
     static async waitForVisibilty(locator: string, timeout: number=30000){

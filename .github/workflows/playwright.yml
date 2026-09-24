@@ -13,7 +13,7 @@ jobs:
 
     env:
       CI: true
-      Base_URL: https://automationexercise.com
+      Base_URL: https://practicesoftwaretesting.com
       email: ${{ secrets.EMAIL }}
       password: ${{ secrets.PASSWORD }}
 
@@ -31,9 +31,10 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run Cucumber tests
-        run: npm run test:ui_smoke_test --project=chromium
+        run: npm run test:ui_smoke_test 
 
       - name: Generate HTML report
+        if: ${{ !cancelled() }}
         run: npx ts-node Utils/CucumberReporter.ts
 
       - uses: actions/upload-artifact@v4
