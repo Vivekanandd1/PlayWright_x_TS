@@ -32,6 +32,7 @@ export class Homepage extends Base {
   }
 
   public static async sortAtoZ(){
+     await fixture.page.waitForLoadState('domcontentloaded');
      await fixture.page.locator(this.elements.sortOptions).selectOption({'value' : 'name,asc'});
   }
 
