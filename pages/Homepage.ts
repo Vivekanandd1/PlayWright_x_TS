@@ -8,7 +8,7 @@ export class Homepage extends Base {
 
    private static elements = {
     //SelectsOptions
-     sortOptions : 'select.form-select',
+     sortOptions : 'select[aria-label="sort"]',
 
      //Field
      searchBox : '#search-query',
@@ -32,7 +32,8 @@ export class Homepage extends Base {
   }
 
   public static async sortAtoZ(){
-     await fixture.page.waitForLoadState('domcontentloaded');
+     await fixture.page.waitForLoadState('networkidle');
+     await this.waitForVisibilty(this.elements.sortOptions, 60000)
      await fixture.page.locator(this.elements.sortOptions).selectOption({'value' : 'name,asc'});
   }
 
@@ -77,7 +78,7 @@ export class Homepage extends Base {
 
   public static async categorySelection(){
     await fixture.page.reload();
-    await fixture.page.waitForLoadState('domcontentloaded');
+    await fixture.page.waitForLoadState('networkidle');
     await fixture.page.locator(this.elements.powerTools).check();
   }
 }

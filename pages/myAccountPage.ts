@@ -6,7 +6,7 @@ import { Base } from '../Utils/Base';
 export class MyAccountPage extends Base {
      private static elements = {
       //Buttons
-      loginButton: 'a[data-test="nav-sign-in"]',
+      loginButton: '.nav-link[data-test="nav-sign-in"]',
       logingSubmitButton: '[data-test="login-submit"]',
 
       //Fields
@@ -19,6 +19,8 @@ export class MyAccountPage extends Base {
     }
 
     public static async clickOnSignInButton() {
+        await fixture.page.waitForLoadState('networkidle');
+        await this.waitForVisibilty(this.elements.loginButton, 60000)
         await this.waitAndClick(this.elements.loginButton);
     }
    
