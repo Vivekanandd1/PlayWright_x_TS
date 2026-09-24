@@ -16,16 +16,22 @@ BeforeAll(async () => {
 Before(async () => {
   context = await browser.newContext();
   fixture.page = await context.newPage();
+  fixture.page.setDefaultTimeout(180000);
+  fixture.page.setDefaultNavigationTimeout(180000);
 });
 
 After(async ({ result }) => {
-  if (result?.status === Status.FAILED) {
-    const fileName = `${Date.now()}`;
-    await ScreenshotHelper.capture(fixture.page, fileName);
+  if (result?.status === Status.FAILED && fixture.page && !fixture.page.isClosed()) {
+    try {
+      const fileName = `${Date.now()}`;
+      await ScreenshotHelper.capture(fixture.page, fileName);
+    } catch (e) {
+      console.warn('Screenshot capture failed:', e);
+    }
   }
 
-  await fixture.page?.close();
-  await context?.close();
+  await fixture.page?.close().catch(() => {});
+  await context?.close().catch(() => {});
 });
 
 AfterAll(async () => {

@@ -1,8 +1,7 @@
 module.exports = {
   default: {
     require: [
-      "src/steps/**/*.ts",
-      "src/hooks/**/*.ts"
+      "steps/**/*.ts"
     ],
     format: [
       "progress",

@@ -14,15 +14,6 @@ export default defineConfig({
   reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
     trace: 'on-first-retry',
-    baseURL: process.env.Base_URL || 'https://automationexercise.com',
+    baseURL: process.env.Base_URL
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        headless: !!process.env.CI,
-      },
-    },
-  ],
 });

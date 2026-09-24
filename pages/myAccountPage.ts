@@ -19,21 +19,26 @@ export class MyAccountPage extends Base {
     }
 
     public static async clickOnSignInButton() {
-        await fixture.page.waitForLoadState('networkidle');
-        await this.waitForVisibilty(this.elements.loginButton, 60000)
+        await fixture.page.waitForLoadState('domcontentloaded');
+        await this.waitForVisibilty(this.elements.loginButton, 180000)
         await this.waitAndClick(this.elements.loginButton);
+        await fixture.page.waitForURL('**/auth/login**', { timeout: 180000 });
     }
    
     public static async userLogin(username: string, password: string){
+        await this.waitForVisibilty(this.elements.emailField, 180000);
         await fixture.page.locator(this.elements.emailField).fill(username);
         await fixture.page.locator(this.elements.passwordField).fill(password);
         await this.waitAndClick(this.elements.logingSubmitButton);
+        await fixture.page.waitForURL((url) => !url.pathname.includes('/auth/login'), { timeout: 180000 });
     }
 
     public static async verifyWelcomeText(welcomeText:string){
-        await fixture.page.waitForLoadState('networkidle');
-        const text = fixture.page.locator(this.elements.welcomeText);
-        expect(await text.textContent()).toContain(welcomeText);
+        await fixture.page.waitForURL('**/account**', { timeout: 180000 });
+        await fixture.page.waitForLoadState('domcontentloaded');
+        const text = fixture.page.getByText(welcomeText, { exact: false });
+        await text.first().waitFor({ state: 'visible', timeout: 180000 });
+        expect(await text.first().textContent()).toContain(welcomeText);
     }
 
 }

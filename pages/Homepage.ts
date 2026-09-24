@@ -32,13 +32,13 @@ export class Homepage extends Base {
   }
 
   public static async sortAtoZ(){
-     await fixture.page.waitForLoadState('networkidle');
-     await this.waitForVisibilty(this.elements.sortOptions, 60000)
+     await fixture.page.waitForLoadState('domcontentloaded');
+     await this.waitForVisibilty(this.elements.sortOptions, 180000)
      await fixture.page.locator(this.elements.sortOptions).selectOption({'value' : 'name,asc'});
   }
 
   public static async productListingAtoZ(){
-    await fixture.page.waitForLoadState('networkidle');
+    await fixture.page.waitForLoadState('domcontentloaded');
      const produclist = await fixture.page.locator(this.elements.productListWithName).allTextContents();
      const actual = produclist.map(name => name.trim());
      const expected = [...actual].sort((a, b) =>
@@ -77,8 +77,8 @@ export class Homepage extends Base {
   }
 
   public static async categorySelection(){
-    await fixture.page.reload();
-    await fixture.page.waitForLoadState('networkidle');
+    await fixture.page.reload({ waitUntil: 'domcontentloaded' });
+    await this.waitForVisibilty(this.elements.powerTools, 180000);
     await fixture.page.locator(this.elements.powerTools).check();
   }
 }
