@@ -8,7 +8,7 @@ export class Homepage extends Base {
 
    private static elements = {
     //SelectsOptions
-     sortOptions : 'select.form-select',
+     sortOptions : 'select[aria-label="sort"]',
 
      //Field
      searchBox : '#search-query',
