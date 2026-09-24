@@ -23,7 +23,11 @@ export class Base {
         });
         await element.click();
     }
-
+    
+    static async waitForVisibilty(locator: string, timeout: number=30000){
+      const element = fixture.page.locator(locator);
+      await element.waitFor({state: 'visible',timeout:timeout});
+    }
     static async navigateTo(link: string) {
         await Promise.all([
             fixture.page.waitForNavigation(),

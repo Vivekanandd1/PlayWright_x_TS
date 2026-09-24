@@ -20,6 +20,7 @@ export class MyAccountPage extends Base {
 
     public static async clickOnSignInButton() {
         await fixture.page.waitForLoadState('networkidle');
+        await this.waitForVisibilty(this.elements.loginButton, 60000)
         await this.waitAndClick(this.elements.loginButton);
     }
    
