@@ -77,7 +77,7 @@ export class Homepage extends Base {
 
   public static async categorySelection(){
     await fixture.page.reload();
-    await fixture.page.waitForLoadState('domcontentloaded');
+    await fixture.page.waitForLoadState('networkidle');
     await fixture.page.locator(this.elements.powerTools).check();
   }
 }
