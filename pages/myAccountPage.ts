@@ -6,7 +6,7 @@ import { Base } from '../Utils/Base';
 export class MyAccountPage extends Base {
      private static elements = {
       //Buttons
-      loginButton: '.nav-link[data-test="nav-sign-in"]',
+      loginButton: '[routerlink="/auth/login"]',
       logingSubmitButton: '[data-test="login-submit"]',
 
       //Fields
