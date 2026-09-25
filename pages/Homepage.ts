@@ -1,5 +1,6 @@
-import { Page, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
 import { fixture } from '../Utils/fixture';
+import { Base } from '../Utils/Base';
 
 export class Homepage extends Base {
   private static elements = {
