@@ -48,7 +48,8 @@ export class Homepage extends Base {
   }
 
    public static async productListWithSearchKeyword(keyword:string){
-     await fixture.page.waitForTimeout(2000);
+     await fixture.page.waitForTimeout(3000);
+     await fixture.page.waitForLoadState('load');
      const produclist = await fixture.page.locator(this.elements.productListWithName).allTextContents();
     expect(produclist[1].trim()).toContain(keyword);
   }
