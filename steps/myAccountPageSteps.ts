@@ -9,7 +9,7 @@ const username = process.env.email;
 const password = process.env.password;
 
 if (!username || !password) {
-  throw new Error('UserName or Password is missing from .env');
+  throw new Error('email/password is missing: set them in .env (local) or in the EMAIL/PASSWORD repo secrets (CI)');
 }
 
 Given ('User clicked on SignIn button', async function()  {
