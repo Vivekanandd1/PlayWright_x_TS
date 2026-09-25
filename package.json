@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:ui_smoke_test": "npx tsx runners/ui_smokeRunner.ts",
+    "test:single_test": "npx tsx runners/singleTestRunner.ts",
     "report": "ts-node Utils/CucumberReporter.ts"
   },
   "keywords": [],

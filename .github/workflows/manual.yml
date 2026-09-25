@@ -6,10 +6,11 @@ on:
       test_script:
         description: "Select the test script to run"
         required: true
-        default: "npm run test:ui_smoke_test"
+        default: "test:ui_smoke_test"
         type: choice
         options:
           - test:ui_smoke_test
+          - test:single_test
 jobs:
   test:
     timeout-minutes: 60
