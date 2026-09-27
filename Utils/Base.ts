@@ -12,7 +12,7 @@ export class Base {
 
      static async landOn(url: string) {
         await fixture.page.goto(url, {
-            waitUntil: "domcontentloaded"
+            waitUntil: "networkidle"
         });
     }
 

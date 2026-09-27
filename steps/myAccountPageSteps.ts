@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { Properties } from '../properties/Properties';
 
-const username = process.env.email;
-const password = process.env.password;
+const username = process.env.EMAIL;
+const password = process.env.PASSWORD;
 
 if (!username || !password) {
   throw new Error('email/password is missing: set them in .env (local) or in the EMAIL/PASSWORD repo secrets (CI)');
