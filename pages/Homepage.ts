@@ -14,7 +14,7 @@ export class Homepage extends Base {
   };
 
   public static async navigateToHomePageUrl() {
-    const url = process.env.Base_URL;
+    const url = process.env.BASE_URL;
     if (!url) {
       throw new Error('Environment variable Base_URL is not defined');
     }
