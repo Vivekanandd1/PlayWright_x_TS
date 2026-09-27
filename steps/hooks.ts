@@ -14,7 +14,9 @@ BeforeAll(async () => {
 });
 
 Before(async () => {
-  context = await browser.newContext();
+  context = await browser.newContext({
+    viewport: { width: 1280, height: 720 }
+  });
   fixture.page = await context.newPage();
   fixture.page.setDefaultTimeout(180000);
   fixture.page.setDefaultNavigationTimeout(180000);
