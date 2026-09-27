@@ -39,12 +39,14 @@ export class Homepage extends Base {
 
   public static async productListingAtoZ(){
     await fixture.page.waitForLoadState('domcontentloaded');
-     const produclist = await fixture.page.locator(this.elements.productListWithName).allTextContents();
-     const actual = produclist.map(name => name.trim());
-     const expected = [...actual].sort((a, b) =>
-        a.localeCompare(b, undefined, { sensitivity: 'base' })
-    );
-    expect(actual).toEqual(expected);
+     const productNames = fixture.page.locator(this.elements.productListWithName);
+     await expect.poll(async () => {
+       const productList = await productNames.allTextContents();
+       const actual = productList.map(name => name.trim());
+       return actual.every((name, index) =>
+         index === 0 || actual[index - 1].localeCompare(name, undefined, { sensitivity: 'base' }) <= 0
+       );
+     }).toBe(true);
   }
 
    public static async productListWithSearchKeyword(keyword:string){
