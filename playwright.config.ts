@@ -14,6 +14,6 @@ export default defineConfig({
   reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
     trace: 'on-first-retry',
-    baseURL: process.env.Base_URL
+    baseURL: process.env.BASE_URL
   },
 });
