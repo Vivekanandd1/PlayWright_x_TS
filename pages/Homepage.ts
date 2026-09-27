@@ -8,7 +8,7 @@ export class Homepage extends Base {
 
    private static elements = {
     //SelectsOptions
-     sortOptions : 'select[aria-label="sort"]',
+     sortOptions : '//select[@aria-label="sort"]',
 
      //Field
      searchBox : '#search-query',
@@ -24,11 +24,13 @@ export class Homepage extends Base {
    }
 
   public static async navigateToHomePageUrl() {
-    const url = process.env.Base_URL;
-    if (!url) {
-      throw new Error('Environment variable Base_URL is not defined');
-    }
-    await this.landOn(url);
+  const url = process.env.BASE_URL;
+  if (!url) {
+    throw new Error('Environment variable BASE_URL is not defined');
+  }
+  await fixture.page.goto(url, { waitUntil: 'domcontentloaded' });
+  await expect(fixture.page).toHaveURL('https://practicesoftwaretesting.com/', {timeout: 30000});
+  await expect(fixture.page.locator('#search-query')).toBeVisible({timeout: 30000 });
   }
 
   public static async sortAtoZ(){

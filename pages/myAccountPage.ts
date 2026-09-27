@@ -18,12 +18,12 @@ export class MyAccountPage extends Base {
 
     }
 
-    public static async clickOnSignInButton() {
-        await fixture.page.waitForLoadState('domcontentloaded');
-        await this.waitForVisibilty(this.elements.loginButton, 180000)
-        await this.waitAndClick(this.elements.loginButton);
-        await fixture.page.waitForURL('**/auth/login**', { timeout: 180000 });
-    }
+   public static async clickOnSignInButton() {
+    const loginButton = fixture.page.getByRole('link', { name: 'Sign in' }); 
+    await expect(loginButton).toBeVisible({ timeout: 30000 });
+    await loginButton.click();
+    await expect(fixture.page).toHaveURL(/\/auth\/login/, { timeout: 30000,});
+}
    
     public static async userLogin(username: string, password: string){
         await this.waitForVisibilty(this.elements.emailField, 180000);
