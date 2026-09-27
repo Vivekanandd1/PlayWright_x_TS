@@ -18,9 +18,9 @@ jobs:
 
     env:
       CI: true
-      Base_URL: ${{ secrets.BASE_URL }}
-      email: ${{ secrets.EMAIL }}
-      password: ${{ secrets.PASSWORD }}
+      BASE_URL: ${{ secrets.BASE_URL }}
+      EMAIL: ${{ secrets.EMAIL }}
+      PASSWORD: ${{ secrets.PASSWORD }}
 
     steps:
     - uses: actions/checkout@v4

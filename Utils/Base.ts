@@ -1,7 +1,7 @@
-import { setDefaultTimeout } from '@cucumber/cucumber';
 import { BrowserContext, Browser } from '@playwright/test';
-import { fixture } from '../Utils/fixture';
-import data from '../data/data.json';
+import { setDefaultTimeout } from '@cucumber/cucumber';
+import { fixture } from './fixture';
+import {data} from '../data/data.json'
 
 setDefaultTimeout(180000);
 

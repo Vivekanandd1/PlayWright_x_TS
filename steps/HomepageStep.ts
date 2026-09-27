@@ -9,7 +9,7 @@ Given('User navigated to home page url', async () => {
 });
 
 Then('User should be redirected to correct url', async function()  {
-  const expectedPath = process.env.Base_URL;
+  const expectedPath = process.env.BASE_URL;
   const actualUrl = fixture.page.url();
   expect(await actualUrl).toContain(expectedPath);
 });
