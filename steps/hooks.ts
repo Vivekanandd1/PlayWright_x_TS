@@ -32,6 +32,13 @@ After(async ({ result }) => {
     }
   }
 
+After(async function (scenario) {
+  if (scenario.result?.status === Status.FAILED) {
+    const screenshot = await this.page.screenshot();
+    this.attach(screenshot, 'image/png');
+  }
+});
+
   await fixture.page?.close().catch(() => {});
   await context?.close().catch(() => {});
 });
