@@ -3,10 +3,18 @@ import { fixture } from '../Utils/fixture';
 import { Base } from '../Utils/Base';
 
 export class MyAccountPage extends Base {
-     private static elements = {
+    private static elements = {
       //Buttons
       loginButton: '[routerlink="/auth/login"]',
       logingSubmitButton: '[data-test="login-submit"]',
+
+      //Fields
+      emailField: 'input#email',
+      passwordField: 'input#password',
+
+      //Text
+      welcomeText: "(//div[@class='container'])[3]//p"
+    }
 
   public static async clickOnSignInButton() {
     const loginButton = fixture.page.locator(this.elements.loginButton);
