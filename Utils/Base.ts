@@ -1,5 +1,7 @@
 import { BrowserContext, Browser } from '@playwright/test';
 import { setDefaultTimeout } from '@cucumber/cucumber';
+import { fixture } from './fixture';
+import {data} from '../data/data.json'
 
 setDefaultTimeout(180000);
 

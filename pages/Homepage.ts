@@ -2,23 +2,34 @@ import { expect } from '@playwright/test';
 import { fixture } from '../Utils/fixture';
 import { Base } from '../Utils/Base';
 
-export class Homepage extends Base {
-  private static elements = {
-    sortOptions: 'select[aria-label="sort"]',
-    searchBox: '#search-query',
-    slider: '.ngx-slider-pointer-max',
-    powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
-    productListWithName: 'div.card-body h5',
-    productListWithPrice: '[data-test="product-price"]',
-    searchBtn: '[data-test="search-submit"]',
-  };
+
+export class Homepage extends Base {  
+
+   private static elements = {
+    //SelectsOptions
+     sortOptions : '//select[@aria-label="sort"]',
+
+     //Field
+     searchBox : '#search-query',
+     slider: '.ngx-slider-pointer-max',
+     powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
+
+     //Porudcts element
+     productListWithName : 'div.card-body h5', 
+     productListWithPrice : '[data-test="product-price"]',
+
+     //buttons
+     searchBtn : '[data-test="search-submit"]',
+   }
 
   public static async navigateToHomePageUrl() {
-    const url = process.env.BASE_URL;
-    if (!url) {
-      throw new Error('Environment variable Base_URL is not defined');
-    }
-    await fixture.page.goto(url, { waitUntil: 'domcontentloaded' });
+  const url = process.env.BASE_URL;
+  if (!url) {
+    throw new Error('Environment variable BASE_URL is not defined');
+  }
+  await fixture.page.goto(url, { waitUntil: 'domcontentloaded' });
+  await expect(fixture.page).toHaveURL('https://practicesoftwaretesting.com/', {timeout: 30000});
+  await expect(fixture.page.locator('#search-query')).toBeVisible({timeout: 30000 });
   }
 
   public static async sortAtoZ() {
