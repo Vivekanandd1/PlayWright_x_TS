@@ -8,7 +8,7 @@ export class Homepage extends Base {
     sortOptions: '//select[@aria-label="sort"]',
 
     // Fields
-    searchBox: '#search-query',
+    searchBox: '#search_query_top',
     slider: '.ngx-slider-pointer-max',
     powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
 
@@ -44,10 +44,10 @@ export class Homepage extends Base {
       );
     }
 
-    await expect(fixture.page).toHaveURL('https://practicesoftwaretesting.com/', {
+    await expect(fixture.page).toHaveURL('https://automationpractice.techwithjatin.com/', {
       timeout: 30000,
     });
-    await expect(fixture.page.locator('#search-query')).toBeVisible({ timeout: 30000 });
+    await expect(fixture.page.locator('#search_query_top')).toBeVisible({ timeout: 30000 });
   }
 
   public static async sortAtoZ() {
