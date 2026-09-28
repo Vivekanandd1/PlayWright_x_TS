@@ -13,9 +13,11 @@ jobs:
 
     env:
       CI: true
-      BASE_URL: ${{ secrets.BASE_URL }}
-      EMAIL: ${{ secrets.EMAIL }}
-      PASSWORD: ${{ secrets.PASSWORD }}
+      # App under test runs inside this job, so no Cloudflare and no secrets needed.
+      Base_URL: http://localhost:4200
+      # Public demo credentials created by the app's database seeder.
+      email: customer@practicesoftwaretesting.com
+      password: welcome01
 
     steps:
       - uses: actions/checkout@v4
@@ -30,8 +32,34 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
+      # ---- Start the Toolshop app locally ----
+      # Cloned outside the workspace so its files never mix with your project.
+      - name: Start Toolshop app
+        run: |
+          git clone --depth 1 https://github.com/testsmith-io/practice-software-testing.git "$RUNNER_TEMP/toolshop"
+          cd "$RUNNER_TEMP/toolshop"
+          docker compose -f docker-compose.prod.yml up --pull missing -d
+
+      - name: Migrate and seed database
+        run: |
+          cd "$RUNNER_TEMP/toolshop"
+          ok=0
+          for i in $(seq 1 20); do
+            if docker compose -f docker-compose.prod.yml exec -T laravel-api php artisan migrate:fresh --seed; then
+              ok=1; break
+            fi
+            echo "Database not ready yet (attempt $i), retrying in 10s..."
+            sleep 10
+          done
+          [ "$ok" = 1 ] || exit 1
+
+      - name: Wait for app to be ready
+        run: |
+          timeout 300 bash -c 'until curl -sf http://localhost:8091/status >/dev/null; do sleep 5; done'
+          timeout 300 bash -c 'until curl -sf http://localhost:4200 >/dev/null; do sleep 5; done'
+
       - name: Run Cucumber tests
-        run: npm run test:ui_smoke_test 
+        run: npm run test:ui_smoke_test
 
       - name: Generate HTML report
         if: ${{ !cancelled() }}
@@ -43,3 +71,9 @@ jobs:
           name: cucumber-report
           path: reports/
           retention-days: 30
+
+      - name: Dump app logs on failure
+        if: failure()
+        run: |
+          cd "$RUNNER_TEMP/toolshop"
+          docker compose -f docker-compose.prod.yml logs --tail=200
