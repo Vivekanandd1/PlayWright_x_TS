@@ -3,6 +3,7 @@ import { Before, After, BeforeAll, AfterAll, setDefaultTimeout, Status } from '@
 import { chromium, Browser, BrowserContext } from '@playwright/test';
 import { ScreenshotHelper } from '../Utils/ScreenshotHelper';
 import { fixture } from '../Utils/fixture';
+import * as fs from 'node:fs/promises';
 
 setDefaultTimeout(180000);
 
@@ -51,21 +52,44 @@ Before(async () => {
 
 After(async ({ result }) => {
   if (fixture.page && !fixture.page.isClosed()) {
-    console.log(`[Page] Scenario finished. status=${result?.status ?? 'unknown'}, finalUrl=${fixture.page.url()}`);
+    const finalUrl = fixture.page.url();
+    console.log(`[Page] Scenario finished. status=${result?.status ?? 'unknown'}, finalUrl=${finalUrl}`);
+
     try {
       console.log(`[Page] Final title: ${await fixture.page.title()}`);
     } catch (e) {
       console.warn(`[Page] Could not read final title: ${e}`);
     }
-  }
 
-  if (result?.status === Status.FAILED && fixture.page && !fixture.page.isClosed()) {
-    try {
+    if (result?.status === Status.FAILED) {
       const fileName = `${Date.now()}`;
-      await ScreenshotHelper.capture(fixture.page, fileName);
-      console.log(`[Debug] Failure screenshot saved: reports/screenshots/${fileName}.png`);
-    } catch (e) {
-      console.warn('Screenshot capture failed:', e);
+      try {
+        await fs.mkdir('reports/debug', { recursive: true });
+        const html = await fixture.page.content();
+        await fs.writeFile(`reports/debug/${fileName}.html`, html, 'utf8');
+        await fs.writeFile(
+          `reports/debug/${fileName}.txt`,
+          [
+            `BASE_URL=${process.env.BASE_URL ?? '<undefined>'}`,
+            `FINAL_URL=${finalUrl}`,
+            `TITLE=${await fixture.page.title()}`,
+            `SEARCH_QUERY_COUNT=${await fixture.page.locator('#search-query').count()}`,
+            `BODY_TEXT_PREVIEW=${(await fixture.page.locator('body').innerText()).slice(0, 4000)}`
+          ].join('\n'),
+          'utf8'
+        );
+        console.log(`[Debug] Failure HTML saved: reports/debug/${fileName}.html`);
+        console.log(`[Debug] Failure summary saved: reports/debug/${fileName}.txt`);
+      } catch (e) {
+        console.warn(`[Debug] Could not save failure HTML/summary: ${e}`);
+      }
+
+      try {
+        await ScreenshotHelper.capture(fixture.page, fileName);
+        console.log(`[Debug] Failure screenshot saved: reports/screenshots/${fileName}.png`);
+      } catch (e) {
+        console.warn('Screenshot capture failed:', e);
+      }
     }
   }
 
