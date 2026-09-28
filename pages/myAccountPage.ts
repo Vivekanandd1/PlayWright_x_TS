@@ -5,15 +5,15 @@ import { Base } from '../Utils/Base';
 export class MyAccountPage extends Base {
     private static elements = {
       //Buttons
-      loginButton: '[routerlink="/auth/login"]',
-      logingSubmitButton: '[data-test="login-submit"]',
+      loginButton: 'a.login',
+      logingSubmitButton: 'button#SubmitLogin',
 
       //Fields
       emailField: 'input#email',
-      passwordField: 'input#password',
+      passwordField: 'input#passwd',
 
       //Text
-      welcomeText: "(//div[@class='container'])[3]//p"
+      welcomeText: "div .info-account"
     }
 
    public static async clickOnSignInButton() {
