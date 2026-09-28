@@ -4,10 +4,10 @@ Feature: E-commerce Web Application Health Check
 Background: Navigation to the URL
   Given User navigated to home page url
 
-@UrlValidation @smoke
+@UrlValidation 
 Scenario: User opened browser and navigate to home page url and validate the home page url with user given url
-And  User navigated to home page url
-Then User should be redirected to correct url
+  And  User navigated to home page url
+  Then User should be redirected to correct url
 
 @Filters @smoke @regression
 Scenario: Check the Search and filter works correctly on Homepage

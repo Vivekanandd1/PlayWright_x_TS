@@ -7,6 +7,6 @@ Background: Navigation to the URL
 
 @userLogin @smoke
 Scenario: User is able to login with valid credentials and validate the user account page url
-Given User clicked on SignIn button
-And User entered valid username and password
-Then User should be able to see the welcome text "data.myAccount.welcomeText" on the account page
+  Given User clicked on SignIn button
+  And User entered valid username and password
+  Then User should be able to see the welcome text "data.myAccount.welcomeText" on the account page
