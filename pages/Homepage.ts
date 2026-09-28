@@ -2,34 +2,52 @@ import { expect } from '@playwright/test';
 import { fixture } from '../Utils/fixture';
 import { Base } from '../Utils/Base';
 
+export class Homepage extends Base {
+  private static elements = {
+    // Select options
+    sortOptions: '//select[@aria-label="sort"]',
 
-export class Homepage extends Base {  
+    // Fields
+    searchBox: '#search-query',
+    slider: '.ngx-slider-pointer-max',
+    powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
 
-   private static elements = {
-    //SelectsOptions
-     sortOptions : '//select[@aria-label="sort"]',
+    // Product elements
+    productListWithName: 'div.card-body h5',
+    productListWithPrice: '[data-test="product-price"]',
 
-     //Field
-     searchBox : '#search-query',
-     slider: '.ngx-slider-pointer-max',
-     powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
-
-     //Porudcts element
-     productListWithName : 'div.card-body h5', 
-     productListWithPrice : '[data-test="product-price"]',
-
-     //buttons
-     searchBtn : '[data-test="search-submit"]',
-   }
+    // Buttons
+    searchBtn: '[data-test="search-submit"]',
+  };
 
   public static async navigateToHomePageUrl() {
-  const url = process.env.BASE_URL;
-  if (!url) {
-    throw new Error('Environment variable BASE_URL is not defined');
-  }
-  await fixture.page.goto(url, { waitUntil: 'domcontentloaded' });
-  await expect(fixture.page).toHaveURL('https://practicesoftwaretesting.com/', {timeout: 30000});
-  await expect(fixture.page.locator('#search-query')).toBeVisible({timeout: 30000 });
+    const url = process.env.BASE_URL;
+    if (!url) {
+      throw new Error('Environment variable BASE_URL is not defined');
+    }
+
+    // Do not print the secret value itself: GitHub Actions masks secrets in logs.
+    const configuredUrl = new URL(url);
+    console.log(`[Homepage] Navigating to host=${configuredUrl.host}, path=${configuredUrl.pathname || '/'}`);
+
+    await fixture.page.goto(url, { waitUntil: 'domcontentloaded' });
+    console.log(`[Homepage] URL after goto: ${fixture.page.url()}`);
+    console.log(`[Homepage] Title after goto: ${await fixture.page.title()}`);
+
+    const pageTitle = await fixture.page.title();
+    if (pageTitle.toLowerCase().includes('just a moment') ||
+        pageTitle.toLowerCase().includes('attention required')) {
+      throw new Error(
+        `Cloudflare/security challenge detected. ` +
+        `Final URL: ${fixture.page.url()}, title: ${pageTitle}. ` +
+        'The CI runner was blocked before the application homepage loaded.'
+      );
+    }
+
+    await expect(fixture.page).toHaveURL('https://practicesoftwaretesting.com/', {
+      timeout: 30000,
+    });
+    await expect(fixture.page.locator('#search-query')).toBeVisible({ timeout: 30000 });
   }
 
   public static async sortAtoZ() {
@@ -39,16 +57,16 @@ export class Homepage extends Base {
     await expect(sort).toHaveValue(/name,asc/i);
   }
 
-  public static async productListingAtoZ(){
+  public static async productListingAtoZ() {
     await fixture.page.waitForLoadState('domcontentloaded');
-     const productNames = fixture.page.locator(this.elements.productListWithName);
-     await expect.poll(async () => {
-       const productList = await productNames.allTextContents();
-       const actual = productList.map(name => name.trim());
-       return actual.every((name, index) =>
-         index === 0 || actual[index - 1].localeCompare(name, undefined, { sensitivity: 'base' }) <= 0
-       );
-     }).toBe(true);
+    const productNames = fixture.page.locator(this.elements.productListWithName);
+    await expect.poll(async () => {
+      const productList = await productNames.allTextContents();
+      const actual = productList.map(name => name.trim());
+      return actual.every((name, index) =>
+        index === 0 || actual[index - 1].localeCompare(name, undefined, { sensitivity: 'base' }) <= 0
+      );
+    }).toBe(true);
   }
 
   public static async productListWithSearchKeyword(keyword: string) {
@@ -69,8 +87,8 @@ export class Homepage extends Base {
 
   public static async verifyProductsPricing(targetValue: number) {
     const prices = await fixture.page.locator(this.elements.productListWithPrice).allTextContents();
-    const actual = prices.map((price) => Number(price.replace('$', '').trim()));
-    expect(actual.every((price) => price <= targetValue)).toBeTruthy();
+    const actual = prices.map(price => Number(price.replace('$', '').trim()));
+    expect(actual.every(price => price <= targetValue)).toBeTruthy();
   }
 
   public static async searchOnHomePage(keyword: string) {
