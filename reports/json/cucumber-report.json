@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 471462199
+              "duration": 280106600
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1425792399
+              "duration": 2141882200
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 86990000
+              "duration": 563831099
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3577299
+              "duration": 661399
             }
           },
           {
@@ -61,7 +61,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 55206400
+              "duration": 47176800
             }
           }
         ],
@@ -85,175 +85,6 @@
           {
             "name": "@smoke",
             "line": 7
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "e-commerce-web-application-health-check;check-the-search-and-filter-works-correctly-on-homepage",
-        "keyword": "Scenario",
-        "line": 13,
-        "name": "Check the Search and filter works correctly on Homepage",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 185693099
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 5,
-            "name": "User navigated to home page url",
-            "match": {
-              "location": "steps\\HomepageStep.ts:7"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1369696399
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 14,
-            "name": "User sorts the produclist alphabetically",
-            "match": {
-              "location": "steps\\HomepageStep.ts:17"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1043340000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 15,
-            "name": "User should be able to see the result alphabetically",
-            "match": {
-              "location": "steps\\HomepageStep.ts:21"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 952202199
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 16,
-            "name": "User keeps the price slider max to 50",
-            "match": {
-              "location": "steps\\HomepageStep.ts:25"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 525775400
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 17,
-            "name": "All the listed product should be below or equal to 50",
-            "match": {
-              "location": "steps\\HomepageStep.ts:29"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3029863999
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 18,
-            "name": "User searches for \"Hammer\" in Application",
-            "match": {
-              "location": "steps\\HomepageStep.ts:33"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 115947199
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 19,
-            "name": "Homepage should display product with matching name \"Hammer\"",
-            "match": {
-              "location": "steps\\HomepageStep.ts:37"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3021342300
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 20,
-            "name": "User selects a category in Homepage",
-            "match": {
-              "location": "steps\\HomepageStep.ts:41"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 859601600
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "User should be able to see the related product \"tools.powerTools.tools\"",
-            "match": {
-              "location": "steps\\HomepageStep.ts:45"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3034040999
-            }
-          },
-          {
-            "keyword": "After",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 52798199
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@ui",
-            "line": 1
-          },
-          {
-            "name": "@HealthCheck",
-            "line": 1
-          },
-          {
-            "name": "@AutomationPractice",
-            "line": 1
-          },
-          {
-            "name": "@Filters",
-            "line": 12
-          },
-          {
-            "name": "@smoke",
-            "line": 12
-          },
-          {
-            "name": "@regression",
-            "line": 12
           }
         ],
         "type": "scenario"
@@ -294,7 +125,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 238308500
+              "duration": 226862700
             }
           },
           {
@@ -307,7 +138,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1311182600
+              "duration": 2118503600
             }
           },
           {
@@ -320,7 +151,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 823204700
+              "duration": 662246400
             }
           },
           {
@@ -333,7 +164,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 954636600
+              "duration": 1334204999
             }
           },
           {
@@ -346,7 +177,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 272391599
+              "duration": 301846299
             }
           },
           {
@@ -354,7 +185,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 32189899
+              "duration": 41375099
             }
           }
         ],

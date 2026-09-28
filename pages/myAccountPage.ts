@@ -17,10 +17,10 @@ export class MyAccountPage extends Base {
     }
 
    public static async clickOnSignInButton() {
-    const loginButton = fixture.page.getByRole('link', { name: 'Sign in' }); 
+    const loginButton = fixture.page.locator(this.elements.loginButton);
     await expect(loginButton).toBeVisible({ timeout: 30000 });
     await loginButton.click();
-    await expect(fixture.page).toHaveURL(/\/auth\/login/, { timeout: 30000,});
+    await expect(fixture.page.url()).toContain('/login?back=my-account', { timeout: 30000,});
 }
 
   public static async userLogin(username: string, password: string) {
@@ -29,12 +29,11 @@ export class MyAccountPage extends Base {
     await expect(email).toBeVisible({ timeout: 180000 });
     await email.fill(username);
     await pass.fill(password);
-    await fixture.page.locator(this.elements.logingSubmitButton).click({ timeout: 180000 });
-    await expect(fixture.page).not.toHaveURL(/\/auth\/login/, { timeout: 180000 });
+    await fixture.page.locator(this.elements.logingSubmitButton).click({ timeout: 180000 })
   }
 
   public static async verifyWelcomeText(welcomeText: string) {
-    await expect(fixture.page).toHaveURL(/\/account/, { timeout: 30000 });
+    await expect(fixture.page).toHaveURL(/\/my-account/, { timeout: 30000 });
     const text = fixture.page.getByText(welcomeText, { exact: false });
     await expect(text.first()).toBeVisible({ timeout: 30000 });
     await expect(text.first()).toContainText(welcomeText, { timeout: 30000 });
