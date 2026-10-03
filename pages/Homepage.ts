@@ -16,8 +16,10 @@ export class Homepage extends Base {
     productListWithName: 'div.card-body h5',
     productListWithPrice: '[data-test="product-price"]',
 
-    // Buttons
+    // Buttons and static elements
     searchBtn: '[data-test="search-submit"]',
+    logo: '#header_logo',
+    cart: 'div.shopping_cart a',
   };
 
   public static async navigateToHomePageUrl() {
@@ -50,23 +52,25 @@ export class Homepage extends Base {
     await expect(fixture.page.locator('#search_query_top')).toBeVisible({ timeout: 30000 });
   }
 
-  public static async sortAtoZ() {
-    const sort = fixture.page.locator(this.elements.sortOptions);
-    await expect(sort).toBeVisible({ timeout: 30000 });
-    await sort.selectOption({ label: 'Name (A - Z)' });
-    await expect(sort).toHaveValue(/name,asc/i);
+  public static async pageLayout(navLink:string) {
+    const logo = fixture.page.locator(this.elements.logo);
+    const searchBox = fixture.page.locator(this.elements.searchBox);
+    const cart = fixture.page.locator(this.elements.cart).first();
+    await expect(logo).toBeVisible();
+    await expect(searchBox).toBeVisible();
+    await expect(cart).toBeVisible();
+    await expect(fixture.page.locator(`//div[@class="header_user_info"]/a[normalize-space()="${navLink}"]`)).toBeVisible();
   }
 
-  public static async productListingAtoZ() {
-    await fixture.page.waitForLoadState('domcontentloaded');
-    const productNames = fixture.page.locator(this.elements.productListWithName);
-    await expect.poll(async () => {
-      const productList = await productNames.allTextContents();
-      const actual = productList.map(name => name.trim());
-      return actual.every((name, index) =>
-        index === 0 || actual[index - 1].localeCompare(name, undefined, { sensitivity: 'base' }) <= 0
-      );
-    }).toBe(true);
+
+  public static async productCategory(product1:string,product2:string,product3:string) {
+    const productOne = fixture.page.locator(`//div[@id='block_top_menu']//li/a[@title="${product1}"]`);
+    const productTwo = fixture.page.locator(`//div[@id='block_top_menu']//li/a[@title="${product2}"]`).last();
+    const productThree = fixture.page.locator(`//div[@id='block_top_menu']//li/a[@title="${product3}"]`).last();
+
+    await expect(productOne).toBeVisible();
+    await expect(productTwo).toBeVisible();
+    await expect(productThree).toBeVisible();
   }
 
   public static async productListWithSearchKeyword(keyword: string) {

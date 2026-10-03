@@ -14,12 +14,12 @@ Then('User should be redirected to correct url', async function()  {
   expect(await actualUrl).toContain(expectedPath);
 });
 
-Given('User sorts the produclist alphabetically', async function(){
-   await Homepage.sortAtoZ();
+Given('the store logo, search box, cart summary and {string} link are displayed', async function(navLink: string){
+   await Homepage.pageLayout(navLink);
 });
 
-Then('User should be able to see the result alphabetically', async function(){
-   await Homepage.productListingAtoZ();
+Then('the main navigation shows {string}, {string} and {string}', async function(product1:string,product2:string,product3:string){
+   await Homepage.productCategory(product1,product2,product3);
 });
 
 When('User keeps the price slider max to {int}',async function(Maxnumber: number){
