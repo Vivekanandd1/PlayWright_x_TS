@@ -50,12 +50,12 @@ jobs:
           retention-days: 30
 
       - name: Slack Notification
-        if: ${{ always() && secrets.SLACK_WEBHOOK_URL != '' }}
+        if: always()
         uses: slackapi/slack-github-action@v1.24.0
         with:
           payload: |
             {
-              "text": "🚀 Automation Execution Completed\nRepository: ${{ github.repository }}\nStatus: ${{ job.status }}\nWorkflow Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              "text": "🚀 Playwright Cucumber Test Completed\nRepository: ${{ github.repository }}\nStatus: ${{ job.status }}\nWorkflow Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
