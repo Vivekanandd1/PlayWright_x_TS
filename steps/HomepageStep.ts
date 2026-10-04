@@ -22,12 +22,12 @@ Then('the main navigation shows {string}, {string} and {string}', async function
    await Homepage.productCategory(product1,product2,product3);
 });
 
-When('User keeps the price slider max to {int}',async function(Maxnumber: number){
-   await Homepage.setSliderPrice(Maxnumber);
+When('the home slider is displayed with its promotional slides',async function(){
+   await Homepage.heroBannerVisibilty();
 });
 
-Then('All the listed product should be below or equal to {int}', async function (Maxnumber:number) {
-  await Homepage.verifyProductsPricing(Maxnumber);
+Then('the {string} call to action is visible on the active slide', async function (message:string) {
+  await Homepage.textVerification(message);
 });
 
 When('User searches for {string} in Application',async function(keyword:string){

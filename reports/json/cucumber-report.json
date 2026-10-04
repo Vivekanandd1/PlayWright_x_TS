@@ -4,17 +4,17 @@
     "elements": [
       {
         "description": "",
-        "id": "e-commerce-web-application-health-check;home-page-loads-with-core-layout-elements",
+        "id": "e-commerce-web-application-health-check;home-slider-displays-promotional-banners",
         "keyword": "Scenario",
-        "line": 13,
-        "name": "Home page loads with core layout elements",
+        "line": 18,
+        "name": "Home slider displays promotional banners",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 384207099
+              "duration": 230566600
             }
           },
           {
@@ -27,33 +27,33 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2713614599
+              "duration": 2351075500
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 14,
-            "name": "the store logo, search box, cart summary and \"Sign in\" link are displayed",
+            "line": 19,
+            "name": "the home slider is displayed with its promotional slides",
             "match": {
-              "location": "steps\\HomepageStep.ts:17"
+              "location": "steps\\HomepageStep.ts:25"
             },
             "result": {
               "status": "passed",
-              "duration": 109498900
+              "duration": 7739999
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 15,
-            "name": "the main navigation shows \"Women\", \"Dresses\" and \"T-shirts\"",
+            "line": 20,
+            "name": "the \"Shop now !\" call to action is visible on the active slide",
             "match": {
-              "location": "steps\\HomepageStep.ts:21"
+              "location": "steps\\HomepageStep.ts:29"
             },
             "result": {
               "status": "passed",
-              "duration": 60748900
+              "duration": 1095400
             }
           },
           {
@@ -61,7 +61,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 175788500
+              "duration": 41282400
             }
           }
         ],
@@ -79,16 +79,12 @@
             "line": 1
           },
           {
-            "name": "@smoke",
-            "line": 12
-          },
-          {
             "name": "@regression",
-            "line": 12
+            "line": 17
           },
           {
-            "name": "@pageLayout",
-            "line": 12
+            "name": "@HeroBanner",
+            "line": 17
           }
         ],
         "type": "scenario"

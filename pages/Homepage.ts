@@ -9,7 +9,7 @@ export class Homepage extends Base {
 
     // Fields
     searchBox: '#search_query_top',
-    slider: '.ngx-slider-pointer-max',
+    slider: 'div#homepage-slider',
     powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
 
     // Product elements
@@ -79,20 +79,13 @@ export class Homepage extends Base {
     await expect(list.first()).toContainText(keyword, { timeout: 30000 });
   }
 
-  public static async setSliderPrice(number: number) {
+  public static async heroBannerVisibilty() {
     const slider = fixture.page.locator(this.elements.slider);
     await expect(slider).toBeVisible({ timeout: 30000 });
-    await slider.focus();
-    for (let i = 0; i < number; i++) {
-      await slider.press('ArrowLeft');
-    }
-    await slider.press('Tab');
   }
 
-  public static async verifyProductsPricing(targetValue: number) {
-    const prices = await fixture.page.locator(this.elements.productListWithPrice).allTextContents();
-    const actual = prices.map(price => Number(price.replace('$', '').trim()));
-    expect(actual.every(price => price <= targetValue)).toBeTruthy();
+  public static async textVerification(message: string) {
+    const text = fixture.page.locator(`//div[@id='homepage-slider']//button[normalize-space()="${message}"]`).last();
   }
 
   public static async searchOnHomePage(keyword: string) {
