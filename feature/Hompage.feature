@@ -13,3 +13,8 @@ Scenario: User opened browser and navigate to home page url and validate the hom
 Scenario: Home page loads with core layout elements
     Then the store logo, search box, cart summary and "Sign in" link are displayed
     And the main navigation shows "Women", "Dresses" and "T-shirts"
+
+@regression @HeroBanner
+Scenario: Home slider displays promotional banners
+    Then the home slider is displayed with its promotional slides
+    And the "Shop now !" call to action is visible on the active slide

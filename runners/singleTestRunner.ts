@@ -11,7 +11,7 @@ config();
       require: ['steps/**/*.ts'],
       format: ['pretty', 'json:reports/json/cucumber-report.json'],
       /* Add test tag here to run the Script*/
-      tags: '@pageLayout',
+      tags: '@HeroBanner',
     },
   });
 
