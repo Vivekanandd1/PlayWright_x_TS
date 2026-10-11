@@ -4,17 +4,17 @@
     "elements": [
       {
         "description": "",
-        "id": "e-commerce-web-application-health-check;home-slider-displays-promotional-banners",
-        "keyword": "Scenario",
-        "line": 18,
-        "name": "Home slider displays promotional banners",
+        "id": "e-commerce-web-application-health-check;featured-product-tabs-show-products",
+        "keyword": "Scenario Outline",
+        "line": 30,
+        "name": "Featured product tabs show products",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 230566600
+              "duration": 368424500
             }
           },
           {
@@ -27,33 +27,46 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2351075500
+              "duration": 3019692000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "the user selects the \"Popular\" tab",
+            "match": {
+              "location": "steps\\HomepageStep.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 189560400
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 19,
-            "name": "the home slider is displayed with its promotional slides",
+            "line": 25,
+            "name": "a list of products is displayed in the \"Popular\" section",
             "match": {
-              "location": "steps\\HomepageStep.ts:25"
+              "location": "steps\\HomepageStep.ts:37"
             },
             "result": {
               "status": "passed",
-              "duration": 7739999
+              "duration": 27585500
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 20,
-            "name": "the \"Shop now !\" call to action is visible on the active slide",
+            "line": 26,
+            "name": "each product shows its name, price and stock status",
             "match": {
-              "location": "steps\\HomepageStep.ts:29"
+              "location": "steps\\HomepageStep.ts:41"
             },
             "result": {
               "status": "passed",
-              "duration": 1095400
+              "duration": 50080599
             }
           },
           {
@@ -61,7 +74,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 41282400
+              "duration": 179003500
             }
           }
         ],
@@ -79,12 +92,224 @@
             "line": 1
           },
           {
-            "name": "@regression",
-            "line": 17
+            "name": "@smoke",
+            "line": 22
           },
           {
-            "name": "@HeroBanner",
-            "line": 17
+            "name": "@regression",
+            "line": 22
+          },
+          {
+            "name": "@tabVerification",
+            "line": 22
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-web-application-health-check;featured-product-tabs-show-products",
+        "keyword": "Scenario Outline",
+        "line": 31,
+        "name": "Featured product tabs show products",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 435758800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigated to home page url",
+            "match": {
+              "location": "steps\\HomepageStep.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3974251000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "the user selects the \"Best Sellers\" tab",
+            "match": {
+              "location": "steps\\HomepageStep.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 167231600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "a list of products is displayed in the \"Best Sellers\" section",
+            "match": {
+              "location": "steps\\HomepageStep.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 31018500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "each product shows its name, price and stock status",
+            "match": {
+              "location": "steps\\HomepageStep.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39108500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 160591499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          },
+          {
+            "name": "@HealthCheck",
+            "line": 1
+          },
+          {
+            "name": "@AutomationPractice",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 22
+          },
+          {
+            "name": "@regression",
+            "line": 22
+          },
+          {
+            "name": "@tabVerification",
+            "line": 22
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-web-application-health-check;featured-product-tabs-show-products",
+        "keyword": "Scenario Outline",
+        "line": 32,
+        "name": "Featured product tabs show products",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 296728600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigated to home page url",
+            "match": {
+              "location": "steps\\HomepageStep.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2938308700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "the user selects the \"Specials\" tab",
+            "match": {
+              "location": "steps\\HomepageStep.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 143428400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "a list of products is displayed in the \"Specials\" section",
+            "match": {
+              "location": "steps\\HomepageStep.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25294499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "each product shows its name, price and stock status",
+            "match": {
+              "location": "steps\\HomepageStep.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45616599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 124666800
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ui",
+            "line": 1
+          },
+          {
+            "name": "@HealthCheck",
+            "line": 1
+          },
+          {
+            "name": "@AutomationPractice",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 22
+          },
+          {
+            "name": "@regression",
+            "line": 22
+          },
+          {
+            "name": "@tabVerification",
+            "line": 22
           }
         ],
         "type": "scenario"
