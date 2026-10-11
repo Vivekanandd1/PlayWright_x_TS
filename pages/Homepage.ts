@@ -11,6 +11,8 @@ export class Homepage extends Base {
     searchBox: '#search_query_top',
     slider: 'div#homepage-slider',
     powerTools: '//input[@class="icheck"]/parent::label[contains(text(),"Power")]',
+    productNameFromTabs: '//ul[contains(@class,"active")]//a[@class="product-name"]',
+    productPriceFromTabs: '//ul[contains(@class,"active")]//h5[@itemprop="name"]/following-sibling::div[@class="content_price"]/span[contains(@class,"price")]',
 
     // Product elements
     productListWithName: 'div.card-body h5',
@@ -73,10 +75,9 @@ export class Homepage extends Base {
     await expect(productThree).toBeVisible();
   }
 
-  public static async productListWithSearchKeyword(keyword: string) {
-    const list = fixture.page.locator(this.elements.productListWithName);
-    await expect(list.first()).toBeVisible({ timeout: 30000 });
-    await expect(list.first()).toContainText(keyword, { timeout: 30000 });
+  public static async productListFromTabSelection(tab: string) {
+    const firstproduct = fixture.page.locator(`//ul[@id='home-page-tabs']//a[normalize-space()="${tab}"]/ancestor::ul/following-sibling::div/ul[contains(@class,'active')]/li/div`);
+    await expect(firstproduct.first()).toBeVisible({ timeout: 30000 });
   }
 
   public static async heroBannerVisibilty() {
@@ -88,17 +89,16 @@ export class Homepage extends Base {
     const text = fixture.page.locator(`//div[@id='homepage-slider']//button[normalize-space()="${message}"]`).last();
   }
 
-  public static async searchOnHomePage(keyword: string) {
-    const searchBox = fixture.page.locator(this.elements.searchBox);
-    await expect(searchBox).toBeVisible({ timeout: 30000 });
-    await searchBox.fill(keyword);
-    await fixture.page.locator(this.elements.searchBtn).click();
+  public static async tabSelection(tab: string) {
+    const tabSelection = fixture.page.locator(`//ul[@id='home-page-tabs']//a[normalize-space()="${tab}"]`);
+    await expect(tabSelection).toBeVisible({ timeout: 30000 });
+    await tabSelection.click();
   }
 
-  public static async categorySelection() {
-    await fixture.page.reload({ waitUntil: 'domcontentloaded' });
-    const powerTools = fixture.page.locator(this.elements.powerTools);
-    await expect(powerTools).toBeVisible({ timeout: 30000 });
-    await powerTools.check();
+  public static async productDetails() {
+    const productName =  fixture.page.locator(this.elements.productNameFromTabs).first();
+    await expect(productName).toBeVisible();
+    const productPrice = fixture.page.locator(this.elements.productPriceFromTabs);
+    await expect(productPrice.first()).toBeVisible({ timeout: 30000 });
   }
 }

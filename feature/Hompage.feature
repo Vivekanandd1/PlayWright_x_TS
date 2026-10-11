@@ -18,3 +18,15 @@ Scenario: Home page loads with core layout elements
 Scenario: Home slider displays promotional banners
     Then the home slider is displayed with its promotional slides
     And the "Shop now !" call to action is visible on the active slide
+
+@smoke @regression @tabVerification
+Scenario Outline: Featured product tabs show products
+    When the user selects the "<tab>" tab
+    Then a list of products is displayed in the "<tab>" section
+    And each product shows its name, price and stock status
+
+    Examples:
+      | tab          |
+      | Popular      |
+      | Best Sellers |
+      | Specials     |

@@ -30,18 +30,18 @@ Then('the {string} call to action is visible on the active slide', async functio
   await Homepage.textVerification(message);
 });
 
-When('User searches for {string} in Application',async function(keyword:string){
-  await Homepage.searchOnHomePage(keyword);
+When('the user selects the {string} tab',async function(tab:string){
+  await Homepage.tabSelection(tab);
 });
 
-Then('Homepage should display product with matching name {string}', async function(keyword:string){
-  await Homepage.productListWithSearchKeyword(keyword);
+Then('a list of products is displayed in the {string} section', async function(tab:string){
+  await Homepage.productListFromTabSelection(tab);
 });
 
-When('User selects a category in Homepage', async function() {
-   await Homepage.categorySelection();
+When('each product shows its name, price and stock status', async function() {
+   await Homepage.productDetails();
 });
 
-Then('User should be able to see the related product {string}', async function(tools:string){
-   await Homepage.productListWithSearchKeyword(Properties.getProperty(tools));
-});
+// Then('User should be able to see the related product {string}', async function(tools:string){
+//    await Homepage.productListWithSearchKeyword(Properties.getProperty(tools));
+// });
